@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  telegrambot:
+    image: ${DOCKER_REGISTRY-}telegrambot
+    build:
+      context: .
+      dockerfile: TelegramBot/Dockerfile
+
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/tmp/googleApiKeys.json
+      - GOOGLE_APPLICATION_CREDENTIALS_CONTENT=[INSERT API KEY WITHOUT SPACES (except in BEGIN/END certificate)]
+      - TELEGRAM_API_KEY=[INSERT API KEY]
